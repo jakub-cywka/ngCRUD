@@ -1,0 +1,26 @@
+<div class='container fullheight is-flex is-flex-column has-items-vertical-centered'>
+  <div class='field has-margin-top-64'>
+    <label class='label is-large'>
+      Task
+    </label>
+    <div class='control has-icons-left'>
+      <input type='text' class='input is-large is-primary' (keydown)='addTask($event)' [(ngModel)]='typed' placeholder='e.g: Go for run' />
+        <span class='icon is-small is-left'>
+          <i class='fas fa-tasks'>
+          </i>
+        </span>
+    </div>
+  </div>
+  <div class='container is-flex is-flex-column has-items-centered has-margin-top-64'>
+    <div *ngFor='let task of tasks' class='field has-margin-vertical-16 has-addons'>
+      <div class='control'>
+        <input type='text' class='input is-info is-large' (keydown)='onInput($event, task)' [(ngModel)]='task.content' />
+      </div>
+      <div class='control'>
+        <button (click)='deleteTask(task)' type='button' class='button is-large is-danger'>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
